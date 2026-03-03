@@ -8,31 +8,31 @@
             margin: 0;
             overflow: hidden;
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
         }
 
-        /* Loader Screen */
+        /* Loader Container */
         #loader {
             position: fixed;
             width: 100%;
             height: 100vh;
-            background: linear-gradient(to bottom, #ffffff, #e6e6e6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            overflow: hidden;
             z-index: 999;
         }
 
-        /* Logo Image */
-        #logo {
-            width: 150px;
+        /* Background Video */
+        #bgVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 1s ease, opacity 1s ease;
         }
 
-        /* Animation when leaving */
+        /* Exit Animation */
         .raise {
-            transform: translateY(-200px);
+            transform: translateY(-100%);
             opacity: 0;
         }
 
@@ -43,28 +43,25 @@
             border: none;
             display: none;
         }
-
     </style>
 </head>
 <body>
 
 <div id="loader">
-    <img src="logo.gif" id="logo">
-    <p>Loading Module...</p>
+    <video autoplay muted playsinline id="bgVideo">
+        <source src="intro.mp4" type="video/mp4">
+    </video>
 </div>
-                      
+
 <iframe src="https://drive.google.com/file/d/1n_UXRGs1dFmeLnn635uCx4nf8J5SCh8s/preview" id="pdfFrame"></iframe>
 
 <script>
     window.onload = function() {
 
-        // Wait 2 seconds before starting animation
         setTimeout(function() {
 
-            // Add animation class
-            document.getElementById("logo").classList.add("raise");
+            document.getElementById("bgVideo").classList.add("raise");
 
-            // Wait 1 second for animation to finish
             setTimeout(function() {
                 document.getElementById("loader").style.display = "none";
                 document.getElementById("pdfFrame").style.display = "block";
@@ -77,9 +74,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
