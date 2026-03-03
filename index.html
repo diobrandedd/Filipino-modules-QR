@@ -56,21 +56,23 @@
 <iframe src="https://drive.google.com/file/d/1n_UXRGs1dFmeLnn635uCx4nf8J5SCh8s/preview" id="pdfFrame"></iframe>
 
 <script>
-    window.onload = function() {
+    const video = document.getElementById("bgVideo");
 
+    video.addEventListener("ended", function() {
+
+        // Start fade animation
+        video.classList.add("fade-out");
+
+        // Wait 1 second for fade to finish
         setTimeout(function() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("pdfFrame").style.display = "block";
+        }, 1000);
 
-            document.getElementById("bgVideo").classList.add("raise");
-
-            setTimeout(function() {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("pdfFrame").style.display = "block";
-            }, 1000);
-
-        }, 2000);
-
-    };
+    });
 </script>
+
 
 </body>
 </html>
+
