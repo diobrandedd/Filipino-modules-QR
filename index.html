@@ -12,22 +12,27 @@
 }
 
 /* Loader Container */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Loader Container */
 #loader {
     position: fixed;
-    inset: 0; /* Better than width + height */
-    overflow: hidden;
+    inset: 0;
+    background: black;
     z-index: 999;
 }
 
 /* Background Video */
 #bgVideo {
-    position: fixed;   /* IMPORTANT CHANGE */
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     transition: opacity 1s ease;
 }
@@ -77,4 +82,5 @@ iframe {
 
 </body>
 </html>
+
 
